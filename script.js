@@ -20,7 +20,7 @@ noButton.addEventListener("click", function () {
     changeImage(imageIndex);
     resizeYesButton();
     updateNoButtonText();
-    if (noCount === MAX_IMAGES) {
+    if (noCount === 15) {
       play = false;
     }
   }
@@ -35,9 +35,12 @@ function handleYesClick() {
 function resizeYesButton() {
   const computedStyle = window.getComputedStyle(yesButton);
   const fontSize = parseFloat(computedStyle.getPropertyValue("font-size"));
-  const newFontSize = fontSize * 2.5;
+  const newFontSize = fontSize * 1.6;
 
   yesButton.style.fontSize = `${newFontSize}px`;
+
+  const padding = parseFloat(computedStyle.getPropertyValue("padding-top"));
+  yesButton.style.padding = `${padding * 1.3}px ${padding * 1.5}px`;
 }
 
 function generateMessage(noCount) {
@@ -48,6 +51,15 @@ function generateMessage(noCount) {
     "Don't do this to me :(",
     "You're breaking my heart",
     "I'm gonna cry...",
+    "You're being mean!",
+    "I'll give you chocolate!",
+    "Think about the cats!",
+    "PLEASEEE",
+    "I'm devastated",
+    "My heart is shattered",
+    "You're the only one for me",
+    "Is that your final answer?",
+    "Last chance... 🥺",
   ];
 
   const messageIndex = Math.min(noCount, messages.length - 1);
